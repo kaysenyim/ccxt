@@ -413,33 +413,14 @@ for id in ccxt.exchanges:
 
 # ------------------------------------------------------------------------------
 
+async def load_markets(exchange):
+    await exchange.load_markets()
+
 
 async def main():
-
-    if argv.exchange:
-
-        if argv.exchange != 'theocean':
-
-            exchange = exchanges[argv.exchange]
-            symbol = argv.symbol
-
-            if hasattr(exchange, 'skip') and exchange.skip:
-                dump(green(exchange.id), 'skipped')
-            else:
-                if symbol:
-                    await load_exchange(exchange)
-                    await test_symbol(exchange, symbol)
-                else:
-                    await try_all_proxies(exchange, proxies)
-
-    else:
-        for exchange in sorted(exchanges.values(), key=lambda x: x.id):
-            if hasattr(exchange, 'skip') and exchange.skip:
-                dump(green(exchange.id), 'skipped')
-            else:
-                await try_all_proxies(exchange, proxies)
-
-# ------------------------------------------------------------------------------
+    exchange = exchanges[argv.exchange]
+    symbol = argv.symbol
+    await load_markets(exchange)
 
 
 if __name__ == '__main__':

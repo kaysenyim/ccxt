@@ -191,6 +191,7 @@ from ccxt.xbtce import xbtce                                # noqa: F401
 from ccxt.yobit import yobit                                # noqa: F401
 from ccxt.zaif import zaif                                  # noqa: F401
 from ccxt.zb import zb                                      # noqa: F401
+from ccxt.chainup import chainup                            # noqa: F401
 
 exchanges = [
     '_1btcxe',
@@ -316,6 +317,7 @@ exchanges = [
     'yobit',
     'zaif',
     'zb',
+    'chainup',
 ]
 
 base = [

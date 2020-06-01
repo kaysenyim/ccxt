@@ -101,5 +101,6 @@
     "yobit":         { "skip": true },
     "yunbi":         { "skip": true },
     "zaif":          { "skip": true },
-    "zb":            { "skip": true }
+    "zb":            { "skip": true },
+    "chainup":       { "skip": true }
 }

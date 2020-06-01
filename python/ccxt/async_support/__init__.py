@@ -173,6 +173,7 @@ from ccxt.async_support.xbtce import xbtce                                # noqa
 from ccxt.async_support.yobit import yobit                                # noqa: F401
 from ccxt.async_support.zaif import zaif                                  # noqa: F401
 from ccxt.async_support.zb import zb                                      # noqa: F401
+from ccxt.async_support.chainup import chainup                            # noqa: F401
 
 exchanges = [
     '_1btcxe',
@@ -218,6 +219,7 @@ exchanges = [
     'bybit',
     'bytetrade',
     'cex',
+    'chainup',
     'chilebit',
     'coinbase',
     'coinbaseprime',
@@ -298,6 +300,7 @@ exchanges = [
     'yobit',
     'zaif',
     'zb',
+    'chainup',
 ]
 
 base = [
