@@ -174,6 +174,7 @@ from ccxt.async_support.yobit import yobit                                # noqa
 from ccxt.async_support.zaif import zaif                                  # noqa: F401
 from ccxt.async_support.zb import zb                                      # noqa: F401
 from ccxt.async_support.chainup import chainup                            # noqa: F401
+from ccxt.async_support.taobiw import taobiw                            # noqa: F401
 
 exchanges = [
     '_1btcxe',
@@ -301,6 +302,7 @@ exchanges = [
     'zaif',
     'zb',
     'chainup',
+    'taobiw'
 ]
 
 base = [

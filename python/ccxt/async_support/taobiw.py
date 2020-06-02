@@ -19,19 +19,19 @@ from ccxt.base.errors import ExchangeNotAvailable
 from ccxt.base.errors import RequestTimeout
 
 
-class chainup(Exchange):
+class taobiw(Exchange):
 
     def describe(self):
-        return self.deep_extend(super(chainup, self).describe(), {
-            'id': 'chainup',
-            'name': 'Chain Up',
+        return self.deep_extend(super(taobiw, self).describe(), {
+            'id': 'taobiw',
+            'name': '淘币网',
             'countries': ['CN'],
             'rateLimit': 2000,
             'userAgent': self.userAgents['chrome39'],
             'version': '',
             'accounts': None,
             'accountsById': None,
-            'hostname': 'openapi.chaindown.com',
+            'hostname': 'openapi.taobiw.com',
             'pro': True,
             'has': {
                 'CORS': False,
@@ -67,8 +67,8 @@ class chainup(Exchange):
                 'logo': 'https://user-images.githubusercontent.com/1294454/76137448-22748a80-604e-11ea-8069-6e389271911d.jpg',
                 'api': {
                     'market': 'http://{hostname}',
-                    'public': 'http://{hostname}',
-                    'private': 'http://{hostname}',
+                    'public': 'https://{hostname}',
+                    'private': 'https://{hostname}',
                     'v2Public': 'http://{hostname}',
                     'v2Private': 'http://{hostname}',
                 },

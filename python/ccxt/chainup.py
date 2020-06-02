@@ -423,7 +423,7 @@ class chainup(Exchange):
         # }
         #
         ticker = self.parse_ticker(response['data'], market)
-        timestamp = self.safe_value(ticker, 'time')
+        timestamp = self.safe_integere(ticker, 'time')
         ticker['timestamp'] = timestamp
         ticker['datetime'] = self.iso8601(timestamp)
         return ticker
@@ -585,10 +585,23 @@ class chainup(Exchange):
         data = self.safe_value(response, 'data')
         result = []
         for i in range(0, len(data)):
-            trades = self.safe_value(data[i], 'data', [])
-            for j in range(0, len(trades)):
-                trade = self.parse_trade(trades[j], market)
-                result.append(trade)
+            trade = data[i]
+            timestamp = self.safe_integer(trade, 'timestamp')
+            t = {
+                'id': None,
+                'info': trade,
+                'order': None,
+                'timestamp': timestamp,
+                'datetime': self.iso8601(timestamp),
+                'symbol': market['symbol'],
+                'type': None,
+                'side': self.safe_string(trade, 'side'),
+                'price': self.safe_float(trade, 'price'),
+                'amount': self.safe_float(trade, 'amount'),
+                'cost': None,
+                'fee': None,
+            }
+            result.append(t)
         result = self.sort_by(result, 'timestamp')
         return self.filter_by_symbol_since_limit(result, symbol, since, limit)
 
@@ -938,7 +951,9 @@ class chainup(Exchange):
         method = self.options['createOrderMethod']
         response = getattr(self, method)(self.extend(request, params))
         timestamp = self.milliseconds()
-        id = self.safe_string(response, 'data')
+        print(response)
+        data = self.safe_value(response, 'data')
+        id = self.safe_integer(data, 'order_id')
         return {
             'info': response,
             'id': id,
